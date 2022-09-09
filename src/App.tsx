@@ -7,9 +7,7 @@ function App() {
   return (
     <div className="App">
       <Wrapper>
-      <table>
-        <Table />
-      </table>
+        <Table />   
       </Wrapper>
     </div>
   );

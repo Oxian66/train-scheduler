@@ -22,7 +22,7 @@ const Entry: FC<Props> = (props: Props) => {
   };
 
   return (
-    <TR>
+    <TR className={`${props.data.departureTime % 60 < 30 ? "green" : "blue"} ${props.data.seatsAvailable < 20 ? "red" : ""}`}>
       <td>{trainNumber}</td>
       <td>{props.data.departureCity}</td>
       <td>{props.data.arrivalCity}</td>
@@ -36,16 +36,19 @@ const Entry: FC<Props> = (props: Props) => {
 }
 
 const TR = styled.tr`
-  & red {
+  &.green {
+    color: #286741;
+  }
+
+  &.blue {
+    color: #2B45AB;
+  }
+
+  &.red {
     color: #DB2B39;
   }
-
-  & green {
-    color: #286741;
-  }
-
-  & blue {
-    color: #286741;
+  td:not(:first-child) {
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
   }
 `
 
